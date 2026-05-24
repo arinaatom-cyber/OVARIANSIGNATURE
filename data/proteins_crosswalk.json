@@ -1,0 +1,137 @@
+{
+  "proteins": [
+    {
+      "gene": "SEC11A",
+      "review": false,
+      "plasma": false,
+      "tissue_priority": true,
+      "tissue_universal": true,
+      "note": "9 приоритетных, ↑ при HGSC"
+    },
+    {
+      "gene": "TMCO1",
+      "review": false,
+      "plasma": false,
+      "tissue_priority": true,
+      "tissue_universal": true,
+      "note": "9 приоритетных"
+    },
+    {
+      "gene": "SHMT2",
+      "review": true,
+      "plasma": false,
+      "tissue_priority": true,
+      "tissue_universal": true,
+      "note": "9 приоритетных"
+    },
+    {
+      "gene": "ACAA1",
+      "review": false,
+      "plasma": false,
+      "tissue_priority": true,
+      "tissue_universal": true,
+      "note": "9 приоритетных"
+    },
+    {
+      "gene": "MTA2",
+      "review": false,
+      "plasma": false,
+      "tissue_priority": true,
+      "tissue_universal": true,
+      "note": "9 приоритетных"
+    },
+    {
+      "gene": "IL4I1",
+      "review": false,
+      "plasma": false,
+      "tissue_priority": true,
+      "tissue_universal": true,
+      "note": "9 приоритетных"
+    },
+    {
+      "gene": "OCIAD2",
+      "review": false,
+      "plasma": false,
+      "tissue_priority": true,
+      "tissue_universal": true,
+      "note": "9 приоритетных"
+    },
+    {
+      "gene": "DTX3L",
+      "review": false,
+      "plasma": false,
+      "tissue_priority": true,
+      "tissue_universal": true,
+      "note": "9 приоритетных"
+    },
+    {
+      "gene": "THEM6",
+      "review": false,
+      "plasma": false,
+      "tissue_priority": true,
+      "tissue_universal": true,
+      "note": "9 приоритетных"
+    },
+    {
+      "gene": "ATRN",
+      "review": false,
+      "plasma": true,
+      "plasma_novel": true,
+      "tissue_priority": false,
+      "tissue_universal": false,
+      "note": "Новый в плазме HGSC"
+    },
+    {
+      "gene": "CPN1",
+      "review": false,
+      "plasma": true,
+      "plasma_novel": true,
+      "tissue_priority": false,
+      "tissue_universal": false,
+      "note": "Новый в плазме"
+    },
+    {
+      "gene": "APOF",
+      "review": false,
+      "plasma": true,
+      "plasma_novel": true,
+      "tissue_priority": false,
+      "tissue_universal": false,
+      "note": "Новый в плазме"
+    },
+    {
+      "gene": "TGM3",
+      "review": false,
+      "plasma": true,
+      "plasma_novel": true,
+      "tissue_priority": false,
+      "tissue_universal": false,
+      "note": "Новый в плазме"
+    },
+    {
+      "gene": "CRNN",
+      "review": false,
+      "plasma": true,
+      "plasma_novel": true,
+      "tissue_priority": false,
+      "tissue_universal": false,
+      "note": "Новый в плазме"
+    },
+    {
+      "gene": "MUC16",
+      "review": true,
+      "plasma": false,
+      "tissue_priority": false,
+      "tissue_universal": false,
+      "note": "CA-125, классический маркёр"
+    },
+    {
+      "gene": "WFDC2",
+      "review": true,
+      "plasma": false,
+      "tissue_priority": false,
+      "tissue_universal": false,
+      "note": "HE4"
+    }
+  ]
+}

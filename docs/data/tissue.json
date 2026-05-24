@@ -1,0 +1,19 @@
+{
+  "repository": "PRIDE",
+  "samples_total": 180,
+  "projects": [
+    { "id": "PXD033741", "n": 110, "matrix": "FFPE ткань", "platform": "timsTOF Pro" },
+    { "id": "PXD012998", "n": 14, "matrix": "свежезамороженная ткань", "platform": "Q Exactive Plus" },
+    { "id": "PXD025864", "n": 6, "matrix": "ткань", "platform": "Q-Exactive" },
+    { "id": "PXD009655", "n": 50, "matrix": "микровезикулы", "platform": "Orbitrap Elite" }
+  ],
+  "core_proteins": { "selected": 2701, "initial": 9610 },
+  "validation": "LOPO (Leave-One-Project-Out)",
+  "models": [
+    { "name": "Логистическая регрессия L2", "auroc": "0,984 ± 0,023", "sens": "86%", "spec": "100%" },
+    { "name": "Random Forest", "auroc": "0,968 ± 0,023", "sens": "84%", "spec": "97%" }
+  ],
+  "universal_markers": 194,
+  "priority_markers": ["SEC11A", "TMCO1", "SHMT2", "ACAA1", "MTA2", "IL4I1", "OCIAD2", "DTX3L", "THEM6"],
+  "pathways": ["UPR / ER-стресс", "OXPHOS", "митохондриальный апоптоз", "цикл Кребса"]
+}

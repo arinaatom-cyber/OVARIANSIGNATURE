@@ -1,0 +1,47 @@
+{
+  "pride_id": "PXD068982",
+  "doi": "10.1021/acs.jproteome.5c00758",
+  "cohort": {
+    "hgsc_stages": "I–III",
+    "controls": 26
+  },
+  "detection_range": "10⁻⁶ – 10⁻¹² моль/л",
+  "cv_healthy_pct": 8,
+  "methods": [
+    {
+      "id": "DDA",
+      "name": "DDA-Shotgun LC-MS/MS",
+      "proteins": 141,
+      "range": "10⁻⁶ – 10⁻⁸"
+    },
+    {
+      "id": "SRM",
+      "name": "SRM (таргетный)",
+      "proteins": 46,
+      "unique": 10,
+      "range": "10⁻⁶ – 10⁻⁸"
+    },
+    {
+      "id": "AFM_MS",
+      "name": "АСМ/МС (АСМ-чип)",
+      "proteins": 242,
+      "unique": 123,
+      "range": "10⁻⁶ – 10⁻¹²"
+    },
+    {
+      "id": "PMconv",
+      "name": "PMconv (метаболом→протеом)",
+      "proteins": 98,
+      "unique": 97,
+      "range": "~10⁻¹¹"
+    }
+  ],
+  "total_unique": 371,
+  "afm_only_pct": 33,
+  "roc": {
+    "DDA": 0.979,
+    "SRM": 0.895,
+    "panel_8": 0.944
+  },
+  "novel_plasma": ["ATRN", "CPN1", "APOF", "TGM3", "CRNN"]
+}

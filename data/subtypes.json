@@ -1,0 +1,46 @@
+{
+  "title": "Эпителиальный рак яичников — подтипы",
+  "focus": "HGSC",
+  "subtypes": [
+    {
+      "id": "HGSC",
+      "name": "Высокозлокачественная серозная карцинома",
+      "share_pct": 52,
+      "focus": true,
+      "molecular": "TP53 (96–97%), BRCA1/2, HRD, геномная нестабильность",
+      "clinical": "Стадии III–IV в ~80% случаев; наибольшая летальность"
+    },
+    {
+      "id": "EC",
+      "name": "Эндометриоидная карцинома",
+      "share_pct": 10,
+      "focus": false,
+      "molecular": "CTNNB1, PTEN, ARID1A",
+      "clinical": "Относительно благоприятный прогноз"
+    },
+    {
+      "id": "CCC",
+      "name": "Светлоклеточная карцинома",
+      "share_pct": 6,
+      "focus": false,
+      "molecular": "ARID1A, PIK3CA",
+      "clinical": "Резистентность к платине"
+    },
+    {
+      "id": "LGSC",
+      "name": "Низкозлокачественная серозная",
+      "share_pct": 4,
+      "focus": false,
+      "molecular": "KRAS, BRAF, RAS/MAPK",
+      "clinical": "Медленный рост"
+    },
+    {
+      "id": "MOC",
+      "name": "Муцинозная карцинома",
+      "share_pct": 3,
+      "focus": false,
+      "molecular": "KRAS, HER2",
+      "clinical": "Редкий подтип"
+    }
+  ]
+}

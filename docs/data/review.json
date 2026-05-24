@@ -1,0 +1,18 @@
+{
+  "prospero": "CRD420250614341",
+  "publications_screened": 51,
+  "candidates_total": 1649,
+  "secondary_analysis_pct": 84,
+  "verified_in_databases": 24,
+  "novel_candidates": 470,
+  "hgsc_focus_pct": 76.9,
+  "pmconv_metabolites": 12,
+  "pmconv_proteins": 98,
+  "doi_review": "10.3390/ijms26135961",
+  "highlights": [
+    "84% исследований — вторичный анализ TCGA/GEO",
+    "Только 24/1649 независимо верифицированы (DisGeNET, CancerMine, Open Targets)",
+    "470 молекул не описаны в специализированных БД как маркёры РЯ",
+    "PMconv: 12 метаболитов HGSC → 98 белков путей"
+  ]
+}

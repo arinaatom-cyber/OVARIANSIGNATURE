@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Ovarian Signature Explorer · ИБМХ · Авогадро</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <header class="hero">
+    <p class="eyebrow">Премия «ВЫЗОВ» · ИБМХ РАН · УНУ «Авогадро»</p>
+    <h1>Ovarian Signature Explorer</h1>
+    <p class="subtitle">Воспроизводимая методология молекулярных сигнатур гетерогенных опухолей на модели рака яичников</p>
+    <p class="authors">Гордеева А.И. · Ключникова А.А. · Ильгисонис Е.В.</p>
+    <nav class="level-nav" id="levelNav">
+      <button type="button" data-level="map" class="active">① Обзор</button>
+      <button type="button" data-level="plasma">② Плазма</button>
+      <button type="button" data-level="tissue">③ Ткань + ML</button>
+      <button type="button" data-level="search">🔍 Поиск белка</button>
+    </nav>
+  </header>
+
+  <main class="container">
+    <!-- LEVEL 1 -->
+    <section id="panel-map" class="panel active">
+      <h2>Карта подтипов эпителиального рака яичников</h2>
+      <p class="hint">Нажмите на подтип — справа откроется контекст и данные обзора (уровень 1).</p>
+      <div class="split">
+        <div class="subtype-grid" id="subtypeGrid"></div>
+        <aside class="detail-card" id="subtypeDetail">
+          <p class="placeholder">Выберите подтип на карте</p>
+        </aside>
+      </div>
+    </section>
+
+    <!-- LEVEL 2 -->
+    <section id="panel-plasma" class="panel">
+      <h2>Плазма крови — три метода протеомики</h2>
+      <p class="hint" id="plasmaIntro"></p>
+      <div class="method-cards" id="methodCards"></div>
+      <div class="stats-row" id="plasmaStats"></div>
+      <div class="novel-box" id="novelBox"></div>
+    </section>
+
+    <!-- LEVEL 3 -->
+    <section id="panel-tissue" class="panel">
+      <h2>Ткань · PRIDE · машинное обучение</h2>
+      <div class="pride-table-wrap" id="prideTable"></div>
+      <div class="stats-row" id="tissueStats"></div>
+      <h3>9 приоритетных маркёров</h3>
+      <div class="chip-row" id="priorityChips"></div>
+      <h3>Функциональные пути</h3>
+      <ul class="path-list" id="pathList"></ul>
+    </section>
+
+    <!-- SEARCH -->
+    <section id="panel-search" class="panel">
+      <h2>Сквозной поиск белка</h2>
+      <p class="hint">Пересечение проектов: обзор → плазма (3 метода) → ткань PRIDE</p>
+      <div class="search-bar">
+        <input type="text" id="geneInput" placeholder="Введите ген, напр. SHMT2, CPN1, SEC11A" />
+        <button type="button" id="searchBtn">Найти</button>
+      </div>
+      <div class="detail-card" id="searchResult">
+        <p class="placeholder">Введите символ гена и нажмите «Найти»</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>Данные: обзор IJMS 2025 · JPR 2025 (PXD068982) · PRIDE ML · <a href="https://github.com/">GitHub</a></p>
+    <p>ИБМХ им. В.Н. Ореховича · Москва · ibmc.msk.ru</p>
+  </footer>
+
+  <script src="js/app.js"></script>
+</body>
+</html>

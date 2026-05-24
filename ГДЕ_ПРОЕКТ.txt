@@ -1,0 +1,17 @@
+Ovarian Signature Explorer — интерактивная платформа
+
+Папка:
+C:\Users\Arina1996\Desktop\премии\ovarian-signature-explorer
+
+Локально открыть сайт:
+  cd docs
+  python -m http.server 8080
+  браузер: http://localhost:8080
+
+На GitHub:
+  см. файл GITHUB.md
+
+Что внутри:
+  docs/     — сайт (карта подтипов, плазма 3 метода, PRIDE+ML, поиск белка)
+  data/     — JSON-данные (можно расширять из статей)
+  README.md — описание проекта

@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-"""ROC SVM RBF, 5-fold CV на тканевых образцах PRIDE (3 проекта, n=130)."""
+"""ROC SVM RBF, 5-fold CV на объединённой когорте PRIDE (4 проекта, n=180)."""
 from pathlib import Path
 
 import matplotlib.pyplot as plt
@@ -12,8 +12,6 @@ from sklearn.preprocessing import StandardScaler
 from sklearn.svm import SVC
 
 RANDOM_STATE = 42
-EV_PROJECT = "PXD009655"
-
 ROOT = Path(__file__).resolve().parents[1]
 MATRIX_CANDIDATES = [
     ROOT.parent / "Машинка Арина" / "Машинка Арина" / "matrix_after_project_zscore_no_imputation.xlsx",
@@ -30,7 +28,7 @@ def find_matrix() -> Path:
     raise FileNotFoundError("matrix_after_project_zscore_no_imputation.xlsx not found")
 
 
-def load_tissue_xy(matrix_path: Path):
+def load_pride_xy(matrix_path: Path):
     df = pd.read_excel(matrix_path, sheet_name="matrix_after_project_z")
     ann = pd.read_excel(matrix_path, sheet_name="sample_annotation")
     meta = ["Protein IDs", "Gene names", "Protein names", "Majority protein IDs"]
@@ -39,11 +37,9 @@ def load_tissue_xy(matrix_path: Path):
     complete = ~X.isna().any(axis=0)
     X = X.loc[:, complete]
     ann2 = ann.set_index("SampleColumn").reindex(X.index)
-    tissue_mask = ann2["Project"].astype(str) != EV_PROJECT
-    X_t = X.loc[tissue_mask].values
-    y_t = (ann2.loc[tissue_mask, "Status"].astype(str) == "Cancer").astype(int).values
-    projects = ann2.loc[tissue_mask, "Project"].value_counts().to_dict()
-    return X_t, y_t, projects
+    y = (ann2["Status"].astype(str) == "Cancer").astype(int).values
+    projects = ann2["Project"].value_counts().to_dict()
+    return X.values, y, projects
 
 
 def plot_svm_rbf_roc(X, y, out_path: Path):
@@ -86,7 +82,7 @@ def plot_svm_rbf_roc(X, y, out_path: Path):
 
 def main():
     matrix_path = find_matrix()
-    X, y, projects = load_tissue_xy(matrix_path)
+    X, y, projects = load_pride_xy(matrix_path)
     mean_auc, std_auc, folds = plot_svm_rbf_roc(X, y, OUT)
     plot_svm_rbf_roc(X, y, OUT_DOCS)
     print(f"samples={X.shape[0]}, features={X.shape[1]}")

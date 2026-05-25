@@ -207,10 +207,21 @@
       </div>
 
       <div class="level-block">
-        <h3><span class="level-num">3</span> Протеомные данные PRIDE и машинное обучение</h3>
-        <p class="level-funding">Интеграция мультиомиксных данных и ML — в рамках проекта РНФ №&nbsp;24-74-10098 (Ильгисонис&nbsp;Е.В., Ключникова&nbsp;А.А.).</p>
-        <p>По критериям поиска в репозитории <strong>PRIDE</strong> отобраны <strong>четыре независимых проекта</strong> с протеомными профилями, связанными с раком яичников. В интегрированном анализе — <strong>180</strong> образцов. Матрица <strong>9 610 × 180</strong> белков, z-score внутри проекта, <strong>без импутации</strong>. Отобрано <strong>2 701</strong> «коровых» белков (coverage 100% во всех образцах).</p>
-        <p>Валидация <strong>LOPO</strong> (Leave-One-Project-Out): обучение на части проектов, тест на независимом. Сравнено <strong>4 стратегии × 6 алгоритмов = 24 модели</strong> — подробности и скрипты: <a href="https://github.com/aziz122596/project_ovarian_cancer" target="_blank" rel="noopener">репозиторий анализа PRIDE</a>.</p>
+        <h3><span class="level-num">3</span> Протеомные данные PRIDE</h3>
+        <p class="level-funding">Интеграция мультиомиксных данных — в рамках проекта РНФ №&nbsp;24-74-10098 (Ильгисонис&nbsp;Е.В., Ключникова&nbsp;А.А.).</p>
+        <p>По критериям поиска в репозитории <strong>PRIDE</strong> отобраны <strong>четыре независимых проекта</strong> с протеомными профилями, связанными с раком яичников (ткань и микровезикулы). В интегрированном анализе — <strong>180</strong> образцов. Матрица <strong>9 610 × 180</strong> белков, z-score внутри проекта, <strong>без импутации</strong>. Отобрано <strong>2 701</strong> «коровых» белков (coverage 100% во всех образцах).</p>
+        <p class="pride-projects">Проекты PRIDE: <a href="https://www.ebi.ac.uk/pride/archive/projects/PXD033741" target="_blank" rel="noopener">PXD033741</a> · <a href="https://www.ebi.ac.uk/pride/archive/projects/PXD009655" target="_blank" rel="noopener">PXD009655</a> · <a href="https://www.ebi.ac.uk/pride/archive/projects/PXD012998" target="_blank" rel="noopener">PXD012998</a> · <a href="https://www.ebi.ac.uk/pride/archive/projects/PXD025864" target="_blank" rel="noopener">PXD025864</a></p>
+
+        <p>Обогащённые пути: эндоплазматический стресс, UPR, окислительное фосфорилирование, митохондриальный апоптоз, цикл Кребса.</p>
+        <p><strong>194</strong> белка сонаправленно изменены в ткани и биологических жидкостях.</p>
+        <p><strong>9 приоритетных тканевых кандидатов:</strong></p>
+        <div class="marker-tags">
+          <span>SEC11A</span><span>TMCO1</span><span>SHMT2</span><span>ACAA1</span><span>MTA2</span>
+          <span>IL4I1</span><span>OCIAD2</span><span>DTX3L</span><span>THEM6</span>
+        </div>
+
+        <h4 class="level-sub">Машинное обучение</h4>
+        <p>На объединённой матрице четырёх проектов PRIDE применены алгоритмы машинного обучения. Валидация <strong>LOPO</strong> (Leave-One-Project-Out): обучение на трёх проектах, тест на четвёртом. Сравнено <strong>4 стратегии × 6 алгоритмов = 24 модели</strong> — подробности и скрипты: <a href="https://github.com/aziz122596/project_ovarian_cancer" target="_blank" rel="noopener">репозиторий анализа PRIDE</a>.</p>
 
         <table>
           <thead>
@@ -225,19 +236,9 @@
         </table>
         <p><small>Permutation <em>p</em> = 0,010. Сравнение с CA-125 / HE4 / OVA1: протеомная панель сопоставима или выше (AUROC до 0,957).</small></p>
 
-        <p>Обогащённые пути: эндоплазматический стресс, UPR, окислительное фосфорилирование, митохондриальный апоптоз, цикл Кребса.</p>
-        <p><strong>194</strong> белка сонаправленно изменены в ткани и биологических жидкостях.</p>
-        <p><strong>9 приоритетных тканевых кандидатов:</strong></p>
-        <div class="marker-tags">
-          <span>SEC11A</span><span>TMCO1</span><span>SHMT2</span><span>ACAA1</span><span>MTA2</span>
-          <span>IL4I1</span><span>OCIAD2</span><span>DTX3L</span><span>THEM6</span>
-        </div>
-
-        <p class="pride-projects">Проекты PRIDE: <a href="https://www.ebi.ac.uk/pride/archive/projects/PXD033741" target="_blank" rel="noopener">PXD033741</a> · <a href="https://www.ebi.ac.uk/pride/archive/projects/PXD009655" target="_blank" rel="noopener">PXD009655</a> · <a href="https://www.ebi.ac.uk/pride/archive/projects/PXD012998" target="_blank" rel="noopener">PXD012998</a> · <a href="https://www.ebi.ac.uk/pride/archive/projects/PXD025864" target="_blank" rel="noopener">PXD025864</a></p>
-
         <figure class="figure">
-          <img src="images/ml_tissue_svm_rbf_roc.png" alt="ROC-кривые SVM RBF: 5-fold CV на тканевых образцах PRIDE" loading="lazy" width="720" />
-          <figcaption><strong>Рис. 6.</strong> Машинное обучение (SVM RBF): 5-fold cross-validation на объединённой когорте PRIDE (4 проекта, 180 образцов). Межпроектная проверка — LOPO.</figcaption>
+          <img src="images/ml_tissue_svm_rbf_roc.png" alt="ROC-кривые SVM RBF: 5-fold CV на объединённой когорте PRIDE, 4 проекта, 180 образцов" loading="lazy" width="720" />
+          <figcaption><strong>Рис. 6.</strong> Машинное обучение (SVM RBF): 5-fold cross-validation на объединённой когорте <strong>4 проектов PRIDE</strong> (180 образцов). Межпроектная проверка — LOPO по четырём проектам.</figcaption>
         </figure>
       </div>
     </section>
@@ -277,7 +278,7 @@
 
     <section id="resources">
       <h2>Код, экспериментальные данные и воспроизводимость</h2>
-      <p>Открытый репозиторий с пайплайном машинного обучения на протеомных данных PRIDE (уровень 3 проекта):</p>
+      <p>Открытый репозиторий с пайплайном машинного обучения на протеомных данных PRIDE (уровень 3 платформы, 4 проекта):</p>
       <p><strong><a href="https://github.com/aziz122596/project_ovarian_cancer" target="_blank" rel="noopener">github.com/aziz122596/project_ovarian_cancer</a></strong></p>
       <p>В репозитории: скрипты анализа (<code>scripts/01–07</code>), методология, таблицы метрик, списки белков, описание входной матрицы (9610×180, z-score без импутации, 2701 «коровых» белков).</p>
 

@@ -4,6 +4,18 @@ from pathlib import Path
 
 import matplotlib.pyplot as plt
 import numpy as np
+
+plt.rcParams.update(
+    {
+        "font.family": "sans-serif",
+        "font.sans-serif": ["Inter", "Segoe UI", "DejaVu Sans", "Arial", "Helvetica"],
+        "axes.titlesize": 13,
+        "axes.labelsize": 12,
+        "legend.fontsize": 9,
+        "xtick.labelsize": 10,
+        "ytick.labelsize": 10,
+    }
+)
 import pandas as pd
 from sklearn.metrics import auc, roc_auc_score, roc_curve
 from sklearn.model_selection import StratifiedKFold

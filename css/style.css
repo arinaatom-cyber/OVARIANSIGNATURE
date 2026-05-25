@@ -350,6 +350,10 @@ tr.highlight td:first-child {
 }
 
 /* Рисунки */
+.hero-figure .inner {
+  max-width: var(--max-wide);
+}
+
 .hero-figure {
   background: var(--surface);
   border-bottom: 1px solid var(--border);

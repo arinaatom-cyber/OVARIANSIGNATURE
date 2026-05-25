@@ -9,7 +9,9 @@ C:\Users\Arina1996\Desktop\премии\ovarian-signature-explorer
   браузер: http://localhost:8080
 
 На GitHub:
-  см. файл GITHUB.md
+  https://github.com/arinaatom-cyber/OVARIANSIGNATURE
+  Сайт (Pages): https://arinaatom-cyber.github.io/OVARIANSIGNATURE/
+  см. GITHUB.md
 
 Что внутри:
   docs/     — сайт (карта подтипов, плазма 3 метода, PRIDE+ML, поиск белка)

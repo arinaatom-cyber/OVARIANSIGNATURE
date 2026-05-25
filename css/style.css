@@ -15,6 +15,7 @@
   --shadow: 0 1px 3px rgba(15, 23, 42, 0.06), 0 4px 16px rgba(15, 23, 42, 0.04);
   --radius: 12px;
   --max: 920px;
+  --max-wide: 1100px;
   --text-base: 1rem;
   --text-sm: 0.875rem;
   --h1: clamp(1.75rem, 4vw, 2.25rem);
@@ -162,6 +163,9 @@ footer .inner {
 /* Контент */
 .content-wrap {
   padding: 2.5rem 1.5rem 4rem;
+  max-width: var(--max-wide);
+  margin-left: auto;
+  margin-right: auto;
 }
 
 section {
@@ -331,14 +335,46 @@ tr.highlight td:first-child {
   border: 1px solid var(--border);
   border-radius: var(--radius);
   box-shadow: var(--shadow);
+  overflow: visible;
 }
 
+/* Полная ширина рисунка без обрезки */
+.figure--full {
+  max-width: var(--max-wide);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.figure__scroll {
+  overflow-x: auto;
+  overflow-y: visible;
+  margin: 0 -0.5rem;
+  padding: 0.25rem 0.5rem;
+  -webkit-overflow-scrolling: touch;
+}
+
+.figure__scroll img,
 .figure img {
+  display: block;
+  width: 100%;
   max-width: 100%;
   height: auto;
-  display: block;
-  margin: 0 auto;
+  object-fit: contain;
+  object-position: center center;
+  border-radius: 6px;
+}
+
+/* Клик / прокрутка для очень широких рисунков — ничего не обрезается по высоте */
+.figure--full .figure__scroll {
+  text-align: center;
+  background: #f1f5f9;
   border-radius: 8px;
+}
+
+.figure--full .figure__scroll img {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
 }
 
 .figure figcaption {
@@ -355,16 +391,12 @@ tr.highlight td:first-child {
   color: var(--text);
 }
 
-.figure-grid {
-  display: grid;
-  gap: 1.5rem;
+/* Рисунки из статей — только в столбик, на полную ширину */
+.figure-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
   margin: 1.75rem 0;
-}
-
-@media (min-width: 700px) {
-  .figure-grid.two-col {
-    grid-template-columns: 1fr 1fr;
-  }
 }
 
 .callout {

@@ -2,6 +2,7 @@
   "prospero": "CRD420250614341",
   "publications_screened": 51,
   "candidates_total": 1649,
+  "hgsc_genes": 1501,
   "secondary_analysis_pct": 84,
   "verified_in_databases": 24,
   "novel_candidates": 470,
@@ -9,10 +10,36 @@
   "pmconv_metabolites": 12,
   "pmconv_proteins": 98,
   "doi_review": "10.3390/ijms26135961",
+  "top_markers": [
+    { "gene": "TP53", "uniprot": "P04637", "count": 11 },
+    { "gene": "CCNE1", "count": 6 },
+    { "gene": "BRCA1", "count": 6 },
+    { "gene": "BRCA2", "count": 5 },
+    { "gene": "KRAS", "count": 5 },
+    { "gene": "RB1", "count": 5 },
+    { "gene": "MYC", "count": 5 }
+  ],
+  "venn_disgenet": { "disgenet_reviewed": 120, "review_markers": 1649, "overlap": 34 },
+  "venn_four_db": {
+    "our_markers": 1649,
+    "disgenet": 120,
+    "cancermine": 970,
+    "open_targets": 9291,
+    "all_four": 24,
+    "unique_to_review": 470
+  },
+  "pathways_hgsc": [
+    { "term": "Pathways in cancer", "score": 340, "p": "6.0×10⁻²⁹", "category": "cancer" },
+    { "term": "AGE-RAGE signaling in diabetic complications", "score": 430, "p": "5.7×10⁻¹⁹", "category": "signaling" },
+    { "term": "PI3K-Akt signaling pathway", "score": 140, "p": "6.9×10⁻⁰⁹", "category": "signaling" },
+    { "term": "Prostate cancer", "score": 340, "p": "1.2×10⁻¹⁸", "category": "cancer" },
+    { "term": "Fluid shear stress and atherosclerosis", "score": 280, "p": "2.7×10⁻¹⁸", "category": "other" }
+  ],
   "highlights": [
-    "84% исследований — вторичный анализ TCGA/GEO",
-    "Только 24/1649 независимо верифицированы (DisGeNET, CancerMine, Open Targets)",
-    "470 молекул не описаны в специализированных БД как маркёры РЯ",
-    "PMconv: 12 метаболитов HGSC → 98 белков путей"
+    "84% исследований — вторичный анализ публичных баз (TCGA/GEO)",
+    "Только 24/1649 подтверждены одновременно в DisGeNET, CancerMine и Open Targets",
+    "470 молекул не ассоциированы с РЯ в специализированных БД — новые кандидаты",
+    "76,9% публикаций посвящены HGSC; для HGSC — 1501 ген в обогащении путей",
+    "PMconv: 12 метаболитов HGSC → 98 белков путей (таурин, жирные кислоты, полиамины)"
   ]
 }

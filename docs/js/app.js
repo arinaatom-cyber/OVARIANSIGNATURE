@@ -75,13 +75,17 @@ function selectSubtype(st) {
       <h3>Уровень 1 · Систематический обзор</h3>
       <p><span class="stat-pill">PROSPERO ${r.prospero}</span>
          <span class="stat-pill">${r.publications_screened} публикаций</span>
-         <span class="stat-pill">${r.candidates_total} кандидатов</span></p>
+         <span class="stat-pill">${r.candidates_total} кандидатов</span>
+         <span class="stat-pill">HGSC: ${r.hgsc_genes} генов</span></p>
       <ul>${r.highlights.map((h) => `<li>${h}</li>`).join("")}</ul>
       <p>PMconv: ${r.pmconv_metabolites} метаболитов → <strong>${r.pmconv_proteins}</strong> белков путей</p>
       <p>DOI обзора: <a href="https://doi.org/${r.doi_review}" target="_blank" rel="noopener">${r.doi_review}</a></p>
-      <p style="margin-top:1rem;color:var(--accent)">→ Перейдите на вкладку «② Плазма» и «③ Ткань + ML»</p>
+      <p style="margin-top:1rem;color:var(--accent)">→ Вкладки «② Плазма» и «③ Ткань + ML»</p>
     `;
+    renderReviewFigures(r);
   } else {
+    document.getElementById("reviewFigures").classList.add("hidden");
+    document.getElementById("reviewFigures").innerHTML = "";
     el.innerHTML = `
       <h3>${st.name}</h3>
       <p><strong>Доля ЭРЯ:</strong> ${st.share_pct}%</p>
@@ -90,6 +94,37 @@ function selectSubtype(st) {
       <p class="placeholder" style="margin-top:1rem">В обзоре 1649 кандидатов для этого подтипа — единичные публикации. Основной эксперимент и ML сфокусированы на <strong>HGSC</strong>.</p>
     `;
   }
+}
+
+function renderReviewFigures(r) {
+  const box = document.getElementById("reviewFigures");
+  box.classList.remove("hidden");
+  const tops = (r.top_markers || [])
+    .map((m) => `<tr><td>${m.gene}</td><td>${m.uniprot || "—"}</td><td>${m.count}</td></tr>`)
+    .join("");
+  const v = r.venn_four_db || {};
+  const d = r.venn_disgenet || {};
+  const paths = (r.pathways_hgsc || [])
+    .map((p) => `<li><strong>${p.term}</strong> (${p.category}) — score ${p.score}, <em>p</em> ${p.p}</li>`)
+    .join("");
+  box.innerHTML = `
+    <h3>Данные обзора (IJMS 2025)</h3>
+    <div class="fig-grid">
+      <div class="fig-card">
+        <h4>Топ маркёров в обзоре</h4>
+        <table class="mini-table"><thead><tr><th>Ген</th><th>UniProt</th><th>n статей</th></tr></thead><tbody>${tops}</tbody></table>
+      </div>
+      <div class="fig-card">
+        <h4>Пересечение с базами</h4>
+        <p>DisGeNET ∩ обзор: <strong>${d.overlap}</strong> из ${d.disgenet_reviewed} / ${d.review_markers}</p>
+        <p>Все 4 источника: <strong>${v.all_four}</strong></p>
+        <p>Только в обзоре (новые): <strong>${v.unique_to_review}</strong></p>
+      </div>
+      <div class="fig-card fig-wide">
+        <h4>Обогащение путей HGSC (${r.hgsc_genes} генов)</h4>
+        <ul class="path-list">${paths}</ul>
+      </div>
+    </div>`;
 }
 
 function renderPlasma() {
@@ -119,9 +154,18 @@ function renderPlasma() {
     <div class="stat-box"><div class="val">${p.roc.panel_8}</div><div class="lbl">панель 8 марк.</div></div>
   `;
 
+  const v = p.venn || {};
+  document.getElementById("plasmaVenn").innerHTML = `
+    <h3>Пересечение методов (JPR 2025, Fig. 3)</h3>
+    <p>DDA ${p.methods[0].proteins} · MRM ${p.methods[1].proteins} · АСМ/МС ${p.methods[2].proteins} · PMconv ${p.methods[3].proteins} → всего <strong>${p.total_unique}</strong> белков</p>
+    <p>Общие для трёх протеомных платформ: <strong>${v.overlap_three_proteomic}</strong> · уникально АСМ/МС: <strong>${p.methods[2].unique}</strong> · PMconv: <strong>${p.methods[3].unique}</strong></p>
+    <p><em>${v.note}</em></p>
+  `;
+
   document.getElementById("novelBox").innerHTML = `
-    <strong>Новые маркёры в плазме HGSC:</strong> ${p.novel_plasma.join(", ")}
-    <br><small>Иммуноглобулиновые пептиды — низкоспецифичные кандидаты</small>
+    <strong>Новые ассоциации с РЯ в плазме:</strong> ${p.novel_plasma.join(", ")}
+    <br><strong>Иммуноглобулины (низкая специфичность):</strong> ${(p.novel_ig_peptides || []).join(", ")}
+    <br><strong>Панель кандидатов:</strong> ${p.candidates_panel} белков · известные из литературы: ${(p.known_overlap_literature || []).join(", ")}
     <br><a href="https://doi.org/${p.doi}" target="_blank" rel="noopener">DOI ${p.doi}</a>
   `;
 }

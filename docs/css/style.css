@@ -255,3 +255,47 @@ footer {
 }
 
 footer a { color: var(--accent); }
+
+.hidden { display: none !important; }
+
+.figures-block {
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border);
+}
+
+.fig-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1rem;
+}
+
+.fig-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 1rem;
+}
+
+.fig-wide { grid-column: 1 / -1; }
+
+.mini-table {
+  width: 100%;
+  font-size: 0.85rem;
+  border-collapse: collapse;
+}
+
+.mini-table th,
+.mini-table td {
+  padding: 0.35rem 0.5rem;
+  border-bottom: 1px solid var(--border);
+  text-align: left;
+}
+
+.venn-summary {
+  margin: 1.5rem 0;
+  padding: 1rem;
+  background: var(--surface2);
+  border-radius: 10px;
+  border-left: 4px solid var(--accent2);
+}

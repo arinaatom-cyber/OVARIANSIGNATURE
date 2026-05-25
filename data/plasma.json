@@ -3,6 +3,7 @@
   "doi": "10.1021/acs.jproteome.5c00758",
   "cohort": {
     "hgsc_stages": "I–III",
+    "patients": 28,
     "controls": 26
   },
   "detection_range": "10⁻⁶ – 10⁻¹² моль/л",
@@ -12,36 +13,46 @@
       "id": "DDA",
       "name": "DDA-Shotgun LC-MS/MS",
       "proteins": 141,
+      "unique": 28,
       "range": "10⁻⁶ – 10⁻⁸"
     },
     {
       "id": "SRM",
-      "name": "SRM (таргетный)",
+      "name": "MRM / SRM (таргетный)",
       "proteins": 46,
-      "unique": 10,
+      "unique": 3,
       "range": "10⁻⁶ – 10⁻⁸"
     },
     {
       "id": "AFM_MS",
-      "name": "АСМ/МС (АСМ-чип)",
+      "name": "АСМ/МС (АСМ-чип + LC-MS/MS)",
       "proteins": 242,
-      "unique": 123,
+      "unique": 122,
       "range": "10⁻⁶ – 10⁻¹²"
     },
     {
       "id": "PMconv",
-      "name": "PMconv (метаболом→протеом)",
+      "name": "PMconv (метаболом → протеом)",
       "proteins": 98,
       "unique": 97,
       "range": "~10⁻¹¹"
     }
   ],
+  "venn": {
+    "overlap_three_proteomic": 35,
+    "overlap_afm_pmconv": 1,
+    "note": "PMconv не пересекается с DDA и MRM; 4 метода вместе — 0 общих"
+  },
   "total_unique": 371,
+  "candidates_panel": 21,
   "afm_only_pct": 33,
   "roc": {
     "DDA": 0.979,
     "SRM": 0.895,
+    "AFM_panel": 0.75,
     "panel_8": 0.944
   },
-  "novel_plasma": ["ATRN", "CPN1", "APOF", "TGM3", "CRNN"]
+  "novel_plasma": ["ATRN", "CPN1", "APOF", "TGM3", "CRNN"],
+  "novel_ig_peptides": ["IGLV7-46", "IGHV3-15", "IGLV2-18", "IGHV1-2"],
+  "known_overlap_literature": ["EFEMP1", "ACTB", "SHBG", "TLN1", "PKM", "CASP3"]
 }

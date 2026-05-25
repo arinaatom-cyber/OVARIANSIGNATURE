@@ -3,79 +3,228 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Ovarian Signature Explorer · ИБМХ · Авогадро</title>
+  <title>Воспроизводимая методология молекулярных сигнатур рака яичников · ИБМХ · Авогадро</title>
+  <meta name="description" content="Научный проект: мультиомный обзор, сверхчувствительная протеомика плазмы, машинное обучение на данных PRIDE — модель высокозлокачественного серозного рака яичников." />
   <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
-  <header class="hero">
-    <p class="eyebrow">Премия «ВЫЗОВ» · ИБМХ РАН · УНУ «Авогадро»</p>
-    <h1>Ovarian Signature Explorer</h1>
-    <p class="subtitle">Воспроизводимая методология молекулярных сигнатур гетерогенных опухолей на модели рака яичников</p>
-    <p class="authors">Гордеева А.И. · Ключникова А.А. · Ильгисонис Е.В.</p>
-    <nav class="level-nav" id="levelNav">
-      <button type="button" data-level="map" class="active">① Обзор</button>
-      <button type="button" data-level="plasma">② Плазма</button>
-      <button type="button" data-level="tissue">③ Ткань + ML</button>
-      <button type="button" data-level="search">🔍 Поиск белка</button>
-    </nav>
+
+  <header class="site-header">
+    <div class="inner">
+      <p class="badge">Премия «ВЫЗОВ» · номинация «Перспектива»</p>
+      <h1>Воспроизводимая методология поиска молекулярных сигнатур гетерогенных опухолей на модели рака яичников</h1>
+      <p class="lead">От систематического анализа мировых данных — к сверхчувствительной жидкой биопсии и межлабораторно воспроизводимым белковым сигнатурам высокозлокачественного серозного рака яичников (HGSC).</p>
+      <p class="authors">Ильгисонис Екатерина Викторовна · Ключникова Анна Алексеевна · Гордеева Арина Игоревна</p>
+      <p class="org">ФГБНУ ИБМХ им. В.Н. Ореховича · УНУ «Авогадро» · Университет «Сириус» · Москва</p>
+    </div>
   </header>
 
-  <main class="container">
-    <!-- LEVEL 1 -->
-    <section id="panel-map" class="panel active">
-      <h2>Карта подтипов эпителиального рака яичников</h2>
-      <p class="hint">Нажмите на подтип — справа откроется контекст и данные обзора (уровень 1).</p>
-      <div class="split">
-        <div class="subtype-grid" id="subtypeGrid"></div>
-        <aside class="detail-card" id="subtypeDetail">
-          <p class="placeholder">Выберите подтип на карте</p>
-        </aside>
-      </div>
-      <div id="reviewFigures" class="figures-block hidden"></div>
+  <nav class="site-nav" aria-label="Разделы проекта">
+    <ul class="inner">
+      <li><a href="#avogadro">Установка «Авогадро»</a></li>
+      <li><a href="#hypothesis">Гипотеза</a></li>
+      <li><a href="#field">Состояние области</a></li>
+      <li><a href="#strategy">Три уровня</a></li>
+      <li><a href="#results">Результаты</a></li>
+      <li><a href="#impact">Значимость</a></li>
+      <li><a href="#publications">Публикации</a></li>
+    </ul>
+  </nav>
+
+  <main class="content-wrap">
+
+    <section id="avogadro">
+      <h2>I. Инфраструктура: УНУ «Авогадро»</h2>
+      <p>Работа выполнена в рамках Уникальной научной установки «Авогадро» ФГБНУ ИБМХ им. В.Н. Ореховича — для исследования биосистем на уровне единичных биомакромолекул и определения белков в <strong>низких и сверхнизких концентрациях</strong>.</p>
+      <p>Стратегическая задача установки: высокочувствительные постгеномные подходы к гетерогенным заболеваниям на основе протеомики, мультиомных данных, физико-химических методов и машинного обучения.</p>
+      <p><strong>Модельная система</strong> — высокозлокачественный серозный рак яичников (HGSC): высокая летальность, молекулярная неоднородность, поздняя диагностика, отсутствие устойчивых одиночных белковых биомаркёров.</p>
     </section>
 
-    <!-- LEVEL 2 -->
-    <section id="panel-plasma" class="panel">
-      <h2>Плазма крови — три метода протеомики</h2>
-      <p class="hint" id="plasmaIntro"></p>
-      <div class="method-cards" id="methodCards"></div>
-      <div class="stats-row" id="plasmaStats"></div>
-      <div class="venn-summary" id="plasmaVenn"></div>
-      <div class="novel-box" id="novelBox"></div>
+    <section id="hypothesis">
+      <h2>Центральная гипотеза: молекулярная гетерогенность</h2>
+      <p>Эпителиальный рак яичников — не одно заболевание. Гистологические подтипы различаются механизмами канцерогенеза, молекулярными нарушениями, чувствительностью к терапии и прогнозом. Общий термин «рак яичников» и маркёры <strong>CA-125</strong> и <strong>HE4</strong> не отражают эту неоднородность.</p>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Подтип</th>
+            <th>Доля</th>
+            <th>Ключевые нарушения</th>
+            <th>Клиника</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="highlight">
+            <td>Высокозлокачественная серозная карцинома (HGSC)</td>
+            <td>~52%</td>
+            <td>TP53, BRCA1/2, дефицит гомологичной рекомбинации, геномная нестабильность</td>
+            <td>Наиболее агрессивный; часто поздние стадии</td>
+          </tr>
+          <tr>
+            <td>Эндометриоидная</td>
+            <td>~10%</td>
+            <td>CTNNB1, PTEN, ARID1A, MSI</td>
+            <td>Более благоприятный прогноз</td>
+          </tr>
+          <tr>
+            <td>Светлоклеточная</td>
+            <td>~6%</td>
+            <td>ARID1A, PIK3CA</td>
+            <td>Резистентность к платине</td>
+          </tr>
+          <tr>
+            <td>Низкозлокачественная серозная</td>
+            <td>~4%</td>
+            <td>KRAS, BRAF, RAS/MAPK</td>
+            <td>Медленный рост</td>
+          </tr>
+          <tr>
+            <td>Муцинозная</td>
+            <td>~3%</td>
+            <td>KRAS, HER2</td>
+            <td>Специфический профиль</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p>Основная модель проекта — <strong>HGSC</strong> (серозная трубная интраэпителиальная карцинома, TP53, HRD, субтипы: иммунореактивный, дифференцированный, пролиферативный, мезенхимальный).</p>
+      <div class="callout">
+        <strong>Вывод:</strong> поиск одного универсального биомаркёра методологически ограничен. Нужны <strong>воспроизводимые многоуровневые молекулярные сигнатуры</strong>.
+      </div>
     </section>
 
-    <!-- LEVEL 3 -->
-    <section id="panel-tissue" class="panel">
-      <h2>Ткань · PRIDE · машинное обучение</h2>
-      <div class="pride-table-wrap" id="prideTable"></div>
-      <div class="stats-row" id="tissueStats"></div>
-      <h3>9 приоритетных маркёров</h3>
-      <div class="chip-row" id="priorityChips"></div>
-      <h3>Функциональные пути</h3>
-      <ul class="path-list" id="pathList"></ul>
+    <section id="field">
+      <h2>Состояние области</h2>
+      <p>Систематический анализ <strong>51</strong> мультиомной публикации (2014–2024), ручная экстракция <strong>1649</strong> кандидатных молекул (гены, белки, транскрипты, метаболиты, эпигеномные признаки).</p>
+
+      <div class="stats-grid">
+        <div class="stat-card"><span class="num">84%</span><span class="lbl">вторичный анализ публичных данных</span></div>
+        <div class="stat-card"><span class="num">24</span><span class="lbl">подтверждены в 3 базах (DisGeNET, CancerMine, Open Targets)</span></div>
+        <div class="stat-card"><span class="num">76,9%</span><span class="lbl">публикаций про HGSC</span></div>
+        <div class="stat-card"><span class="num">470</span><span class="lbl">новых кандидатов в БД</span></div>
+      </div>
+
+      <p><strong>«Эффект поиска под фонарём»:</strong> исследователи находят молекулы, доступные текущим технологиям, а не обязательно наиболее значимые для опухоли. В плазме HGSC значимые белки могут быть на уровне <strong>10⁻¹⁰–10⁻¹² моль/л</strong>, тогда как стандартный МС плазмы — преимущественно <strong>10⁻⁶–10⁻⁸ моль/л</strong>.</p>
+      <p>Нерешённая задача: <strong>воспроизводимая методология</strong>, объединяющая литературу, плазменную протеомику, тканевые белки и машинное обучение.</p>
     </section>
 
-    <!-- SEARCH -->
-    <section id="panel-search" class="panel">
-      <h2>Сквозной поиск белка</h2>
-      <p class="hint">Пересечение проектов: обзор → плазма (3 метода) → ткань PRIDE</p>
-      <div class="search-bar">
-        <input type="text" id="geneInput" placeholder="Введите ген, напр. SHMT2, CPN1, SEC11A" />
-        <button type="button" id="searchBtn">Найти</button>
+    <section id="strategy">
+      <h2>Трёхуровневая стратегия исследования</h2>
+
+      <div class="level-block">
+        <h3><span class="level-num">1</span> Систематизация данных и PMconv</h3>
+        <p>Систематический обзор по <strong>PRISMA</strong> (PROSPERO <a href="https://www.crd.york.ac.uk/prospero/display_record.php?ID=CRD420250614341" target="_blank" rel="noopener">CRD420250614341</a>). База <strong>1649</strong> кандидатов с аннотацией по подтипу, стадии, направлению изменения, методу и числу образцов.</p>
+        <p>Инструмент <strong>PMconv</strong> сопоставляет метаболиты и белки через метаболические пути. Для HGSC: <strong>12</strong> метаболитов → <strong>98</strong> белков путей (таурин, жирные кислоты, полиамины, аминокислоты). Многие из них труднодоступны для прямого МС в плазме.</p>
+        <p>Ключевые публикации: <em>Int. J. Mol. Sci.</em> 2025, 26(13), 5961 — <a href="https://doi.org/10.3390/ijms26135961" target="_blank" rel="noopener">DOI 10.3390/ijms26135961</a></p>
       </div>
-      <div class="detail-card" id="searchResult">
-        <p class="placeholder">Введите символ гена и нажмите «Найти»</p>
+
+      <div class="level-block">
+        <h3><span class="level-num">2</span> Сверхчувствительная протеомика плазмы</h3>
+        <p><strong>Атомно-силовая микроскопия + масс-спектрометрия (АСМ/МС):</strong> чип с фотоактивным бензофеноновым кросслинкером, ковалентный захват белков плазмы, УФ-активация, ферментативное расщепление, LC-MS/MS элюатов.</p>
+        <p>Диапазон детекции <strong>10⁻⁶–10⁻¹² моль/л</strong> (на 2–4 порядка чувствительнее стандартного МС плазмы). Межиндивидуальная вариабельность на донорах <strong>&lt;8%</strong>. Когорта: HGSC стадий I–III и здоровые контроли. Данные в PRIDE: <strong>PXD068982</strong>.</p>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Метод</th>
+              <th>Диапазон</th>
+              <th>Белков</th>
+              <th>Уникальных</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>Тандемная МС (DDA-Shotgun)</td><td>10⁻⁶–10⁻⁸</td><td>141</td><td>—</td></tr>
+            <tr><td>Мониторинг заданных реакций (MRM/SRM)</td><td>10⁻⁶–10⁻⁸</td><td>46</td><td>10</td></tr>
+            <tr><td>АСМ/МС</td><td>10⁻⁶–10⁻¹²</td><td>242</td><td>123</td></tr>
+            <tr><td>PMconv</td><td>~10⁻¹¹</td><td>98</td><td>97</td></tr>
+          </tbody>
+        </table>
+
+        <p>Всего уникальных белков в интеграции: <strong>371</strong>. Общих для трёх протеомных платформ: <strong>35</strong>. Около <strong>33%</strong> белков выявлены только АСМ/МС.</p>
+
+        <div class="stats-grid">
+          <div class="stat-card"><span class="num">0,979</span><span class="lbl">ROC, DDA-Shotgun</span></div>
+          <div class="stat-card"><span class="num">0,895</span><span class="lbl">ROC, MRM</span></div>
+          <div class="stat-card"><span class="num">0,944</span><span class="lbl">ROC, панель 8 маркёров</span></div>
+        </div>
+
+        <p><strong>Новые плазменные кандидаты HGSC:</strong></p>
+        <div class="marker-tags">
+          <span>ATRN</span><span>CPN1</span><span>APOF</span><span>TGM3</span><span>CRNN</span>
+        </div>
+        <p>Иммуноглобулиновые пептиды учтены, но рассматриваются как низкоспецифичные кандидаты.</p>
+        <p><em>J. Proteome Res.</em> 2025, 24(12), 6203–6214 — <a href="https://doi.org/10.1021/acs.jproteome.5c00758" target="_blank" rel="noopener">DOI 10.1021/acs.jproteome.5c00758</a></p>
+      </div>
+
+      <div class="level-block">
+        <h3><span class="level-num">3</span> Тканевые белки PRIDE и машинное обучение</h3>
+        <p>Четыре независимых набора из репозитория <strong>PRIDE</strong>, всего <strong>180</strong> образцов. Единый протокол нормализации, отбор воспроизводимо детектируемых белков, без импутации и утечки данных.</p>
+        <p>Валидация <strong>LOPO</strong> (Leave-One-Project-Out): модель обучается без одного исследования и тестируется на нём.</p>
+
+        <table>
+          <thead>
+            <tr><th>Модель</th><th>AUROC</th><th>Чувствительность</th><th>Специфичность</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Логистическая регрессия (L2)</td><td>0,984 ± 0,023</td><td>86%</td><td>100%</td></tr>
+            <tr><td>Случайный лес</td><td>0,968 ± 0,023</td><td>84%</td><td>97%</td></tr>
+          </tbody>
+        </table>
+
+        <p>Обогащённые пути: эндоплазматический стресс, UPR, окислительное фосфорилирование, митохондриальный апоптоз, цикл Кребса.</p>
+        <p><strong>194</strong> белка сонаправленно изменены в ткани и биологических жидкостях.</p>
+        <p><strong>9 приоритетных тканевых кандидатов:</strong></p>
+        <div class="marker-tags">
+          <span>SEC11A</span><span>TMCO1</span><span>SHMT2</span><span>ACAA1</span><span>MTA2</span>
+          <span>IL4I1</span><span>OCIAD2</span><span>DTX3L</span><span>THEM6</span>
+        </div>
       </div>
     </section>
+
+    <section id="results">
+      <h2>Совокупность результатов</h2>
+      <ul class="results-list">
+        <li>Верифицированная база <strong>1649</strong> кандидатных молекул эпителиального рака яичников</li>
+        <li>Обоснован фокус на <strong>HGSC</strong> и ограниченность одиночных маркёров</li>
+        <li>Инструмент <strong>PMconv</strong> для связи метаболома и протеома</li>
+        <li>Метод концентрации и МС-детекции плазмы на чипах, диапазон до <strong>10⁻¹² моль/л</strong></li>
+        <li>Новые плазменные маркёры и панель с высокой разделяющей способностью (ROC до <strong>0,979</strong>)</li>
+        <li>Межлабораторный классификатор тканевых сигнатур (LOPO AUROC <strong>0,984</strong>)</li>
+        <li><strong>194</strong> согласованных белка ткань + жидкость; <strong>9</strong> приоритетных для дальнейшей валидации</li>
+      </ul>
+      <div class="callout">
+        Итог подтверждает гипотезу: при гетерогенных опухолях диагностика строится на <strong>многоуровневых воспроизводимых сигнатурах</strong> (литература → плазма → ткань → ML), а не на одном белке.
+      </div>
+    </section>
+
+    <section id="impact">
+      <h2>Научная значимость и перспективы</h2>
+      <p>Создана воспроизводимая методология поиска молекулярных сигнатур на модели HGSC — с возможностью переноса на другие гетерогенные опухоли с низкокопийными белками в крови.</p>
+      <p><strong>Практика:</strong> жидкая биопсия на основе белковых панелей (ранняя диагностика, стратификация, новые диагностические наборы).</p>
+      <p><strong>Инфраструктура:</strong> ФГБНУ ИБМХ им. В.Н. Ореховича · УНУ «Авогадро» · Соглашение №075-15-2021-933 · <a href="https://ibmc.msk.ru" target="_blank" rel="noopener">ibmc.msk.ru</a></p>
+    </section>
+
+    <section id="publications">
+      <h2>Основные публикации по проекту</h2>
+      <ol class="pub-list">
+        <li>Kliuchnikova A. et al. <em>Ovarian Cancer: Multi-Omics Data Integration.</em> Int. J. Mol. Sci. 2025;26(13):5961. <a href="https://doi.org/10.3390/ijms26135961" target="_blank" rel="noopener">10.3390/ijms26135961</a></li>
+        <li>Sarygina E.V. et al. <em>Advancing Plasma Proteomics for the Discovery of Ovarian Cancer Biomarkers.</em> J. Proteome Res. 2025;24(12):6203–6214. <a href="https://doi.org/10.1021/acs.jproteome.5c00758" target="_blank" rel="noopener">10.1021/acs.jproteome.5c00758</a></li>
+        <li>Gordeeva A.I. et al. <em>MS Identification of Blood Plasma Proteins Concentrated on a Photocrosslinker-Modified Surface.</em> Int. J. Mol. Sci. 2024;25(1):409. <a href="https://doi.org/10.3390/ijms25010409" target="_blank" rel="noopener">10.3390/ijms25010409</a></li>
+        <li>Gordeeva A.I. et al. <em>MS analysis of proteins on AFM chips from blood plasma.</em> BBA Proteins and Proteomics 2026;1874:141057. <a href="https://doi.org/10.1016/j.bbapap.2026.141057" target="_blank" rel="noopener">10.1016/j.bbapap.2026.141057</a></li>
+      </ol>
+      <p>Данные плазмы: PRIDE <a href="https://www.ebi.ac.uk/pride/archive/projects/PXD068982" target="_blank" rel="noopener">PXD068982</a></p>
+    </section>
+
   </main>
 
   <footer>
-    <p>Данные: обзор IJMS 2025 · JPR 2025 (PXD068982) · PRIDE ML ·
-      <a href="https://github.com/arinaatom-cyber/OVARIANSIGNATURE" target="_blank" rel="noopener">GitHub</a> ·
-      <a href="https://arinaatom-cyber.github.io/OVARIANSIGNATURE/" target="_blank" rel="noopener">сайт проекта</a></p>
-    <p>ИБМХ им. В.Н. Ореховича · Москва · ibmc.msk.ru</p>
+    <div class="inner">
+      <p><strong>Воспроизводимая методология молекулярных сигнатур рака яичников</strong></p>
+      <p>Ильгисонис Е.В. · Ключникова А.А. · Гордеева А.И.</p>
+      <p>ИБМХ им. В.Н. Ореховича · Москва · ibmc.msk.ru</p>
+      <p><a href="https://arinaatom-cyber.github.io/OVARIANSIGNATURE/">Сайт проекта</a> · <a href="https://github.com/arinaatom-cyber/OVARIANSIGNATURE">GitHub</a></p>
+    </div>
   </footer>
 
-  <script src="js/app.js"></script>
 </body>
 </html>

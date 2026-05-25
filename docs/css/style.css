@@ -271,6 +271,13 @@ li { margin-bottom: 0.4rem; }
   margin-top: 0;
 }
 
+.level-sub {
+  margin: 1.5rem 0 0.75rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--accent);
+}
+
 .level-num {
   display: inline-block;
   font-size: var(--text-sm);

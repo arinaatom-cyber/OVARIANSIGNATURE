@@ -212,6 +212,7 @@
           <tbody>
             <tr><td>Логистическая регрессия L2 (LOPO)</td><td>0,984 ± 0,023</td><td>86%</td><td>100%</td></tr>
             <tr><td>Случайный лес, tissue-only LOPO</td><td>0,957 [0,92–0,98]</td><td>84%</td><td>97%</td></tr>
+            <tr><td>SVM RBF, tissue-only LOPO</td><td>0,942</td><td>—</td><td>—</td></tr>
             <tr><td>Universal markers (194 белка)</td><td>0,916</td><td>—</td><td>—</td></tr>
           </tbody>
         </table>
@@ -226,10 +227,16 @@
         </div>
 
         <div class="scheme-strip">
-          <div class="scheme-step"><strong>PXD033741</strong>110 образцов · ткань</div>
+          <div class="scheme-step"><strong>PXD033741</strong>110 · ткань</div>
+          <div class="scheme-step"><strong>PXD012998</strong>14 · ткань</div>
+          <div class="scheme-step"><strong>PXD025864</strong>6 · ткань</div>
           <div class="scheme-step"><strong>PXD009655</strong>50 · микровезикулы</div>
-          <div class="scheme-step"><strong>+2 проекта</strong>20 · LOPO-валидация</div>
         </div>
+
+        <figure class="figure">
+          <img src="images/ml_tissue_svm_rbf_roc.png" alt="ROC-кривые SVM RBF: 5-fold CV на тканевых образцах PRIDE" loading="lazy" width="720" />
+          <figcaption><strong>Рис. 6.</strong> Машинное обучение (SVM RBF): 5-fold cross-validation на тканевых образцах трёх проектов PRIDE (n=130). Межпроектная проверка — схема LOPO по четырём наборам PRIDE (см. таблицу).</figcaption>
+        </figure>
 
         <figure class="figure figure--full">
           <div class="figure__scroll">

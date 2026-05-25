@@ -14,6 +14,6 @@
     { "name": "Random Forest", "auroc": "0,968 ± 0,023", "sens": "84%", "spec": "97%" }
   ],
   "universal_markers": 194,
-  "priority_markers": ["SEC11A", "TMCO1", "SHMT2", "ACAA1", "MTA2", "IL4I1", "OCIAD2", "DTX3L", "THEM6"],
+  "integration_signature": { "total": 41, "plasma": 21, "tissue_literature": 20 },
   "pathways": ["UPR / ER-стресс", "OXPHOS", "митохондриальный апоптоз", "цикл Кребса"]
 }

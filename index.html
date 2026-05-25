@@ -215,12 +215,7 @@
         <p class="pride-projects">Проекты PRIDE: <a href="https://www.ebi.ac.uk/pride/archive/projects/PXD033741" target="_blank" rel="noopener">PXD033741</a> · <a href="https://www.ebi.ac.uk/pride/archive/projects/PXD009655" target="_blank" rel="noopener">PXD009655</a> · <a href="https://www.ebi.ac.uk/pride/archive/projects/PXD012998" target="_blank" rel="noopener">PXD012998</a> · <a href="https://www.ebi.ac.uk/pride/archive/projects/PXD025864" target="_blank" rel="noopener">PXD025864</a></p>
 
         <p>Обогащённые пути: эндоплазматический стресс, UPR, окислительное фосфорилирование, митохондриальный апоптоз, цикл Кребса.</p>
-        <p><strong>194</strong> белка сонаправленно изменены в ткани и биологических жидкостях.</p>
-        <p><strong>9 приоритетных тканевых кандидатов:</strong></p>
-        <div class="marker-tags">
-          <span>SEC11A</span><span>TMCO1</span><span>SHMT2</span><span>ACAA1</span><span>MTA2</span>
-          <span>IL4I1</span><span>OCIAD2</span><span>DTX3L</span><span>THEM6</span>
-        </div>
+        <p><strong>194</strong> белка сонаправленно изменены в ткани опухоли и биологических жидкостях — это резерв для интеграции с плазменным уровнем (см. раздел <a href="#integration">«Сигнатура 41»</a>).</p>
 
         <h4 class="level-sub">Машинное обучение</h4>
         <p>На объединённой матрице четырёх проектов PRIDE применены алгоритмы машинного обучения. Валидация <strong>LOPO</strong> (Leave-One-Project-Out): обучение на трёх проектах, тест на четвёртом. Сравнено <strong>4 стратегии × 6 алгоритмов = 24 модели</strong> — подробности и скрипты: <a href="https://github.com/aziz122596/project_ovarian_cancer" target="_blank" rel="noopener">репозиторий анализа PRIDE</a>.</p>
@@ -293,7 +288,8 @@
         <li>Метод концентрации и МС-детекции плазмы на чипах, диапазон до <strong>10⁻¹² моль/л</strong></li>
         <li>Новые плазменные маркёры и панель с высокой разделяющей способностью (ROC до <strong>0,979</strong>)</li>
         <li>Межлабораторный протеомный классификатор (LOPO AUROC <strong>0,984</strong>)</li>
-        <li><strong>194</strong> согласованных белка в объединённых протеомных данных; <strong>9</strong> приоритетных для дальнейшей валидации</li>
+        <li><strong>194</strong> согласованных белка в объединённых протеомных данных (ткань ↔ биожидкости)</li>
+        <li>Итоговая двухуровневая <strong><a href="#integration">сигнатура из 41 белка-кандидата</a></strong>: 21 плазменный + 20 тканево-литературных, в 6 функциональных модулях</li>
       </ul>
       <div class="callout">
         Итог подтверждает гипотезу: при гетерогенных опухолях диагностика строится на <strong>многоуровневых воспроизводимых сигнатурах</strong> (литература → плазма → ткань → ML), а не на одном белке.
@@ -339,10 +335,10 @@
         <div class="stat-card"><span class="num">180</span><span class="lbl">образцов в интеграции</span></div>
         <div class="stat-card"><span class="num">2701</span><span class="lbl">коровых белков (coverage 100%)</span></div>
         <div class="stat-card"><span class="num">0,957</span><span class="lbl">AUROC Random Forest, LOPO</span></div>
-        <div class="stat-card"><span class="num">194</span><span class="lbl">универсальных маркёров</span></div>
+        <div class="stat-card"><span class="num">41</span><span class="lbl">белков в итоговой сигнатуре (ткань+плазма)</span></div>
       </div>
       <p>Логистическая регрессия L2 (LOPO): AUROC <strong>0,984 ± 0,023</strong> (чувствительность 86%, специфичность 100%) — по итогам интеграции проекта. Сравнение 4 стратегий × 6 алгоритмов ML — в <a href="https://github.com/aziz122596/project_ovarian_cancer/blob/main/repo/docs/RESULTS.md" target="_blank" rel="noopener">RESULTS.md</a>.</p>
-      <p><strong>9 приоритетных кандидатов</strong> (пересечение топ-100 RF и universal): SEC11A, TMCO1, SHMT2, ACAA1, MTA2, IL4I1, OCIAD2, DTX3L, THEM6.</p>
+      <p>Финальный пул проекта — <strong><a href="#integration">41 белок-кандидат</a></strong> (21 плазменный + 20 тканево-литературных), организованный в 6 функциональных модулей: энергетический метаболизм, DDR/хроматин, РНК-процессинг, ECM/цитоскелет, секреция, иммунитет.</p>
     </section>
 
   </main>

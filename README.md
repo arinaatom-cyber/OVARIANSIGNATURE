@@ -24,7 +24,9 @@ python -m http.server 8080 --directory docs
 
 1. Создайте репозиторий на GitHub
 2. Settings → Pages → Source: **Deploy from branch** → folder **`/docs`**
-3. `git push` — сайт по адресу `https://<user>.github.io/ovarian-signature-explorer/`
+3. `git push` — сайт: **https://arinaatom-cyber.github.io/OVARIANSIGNATURE/**
+
+Репозиторий: https://github.com/arinaatom-cyber/OVARIANSIGNATURE
 
 ## Структура
 
@@ -37,7 +39,7 @@ scripts/        # конвертация Excel → JSON (опционально)
 ## Публикации
 
 - Kliuchnikova A. et al. Int. J. Mol. Sci. 2025, 26(13), 5961 — DOI [10.3390/ijms26135961](https://doi.org/10.3390/ijms26135961)
-- Sarygina E.V. et al. J. Proteome Res. 2025, 24(12), 6203–6214 — DOI [10.1021/acs.jproteome.5c00758](https://doi.org/10.1021/acs.jproteome.5c00758)
+- Ilgisonis E.V. et al. J. Proteome Res. 2025, 24(12), 6203–6214 — DOI [10.1021/acs.jproteome.5c00758](https://doi.org/10.1021/acs.jproteome.5c00758)
 - Gordeeva A.I. et al. BBA Proteins and Proteomics 2026 — DOI [10.1016/j.bbapap.2026.141127](https://doi.org/10.1016/j.bbapap.2026.141127)
 
 ## Лицензия

@@ -142,6 +142,13 @@ footer .inner {
   font-weight: 600;
 }
 
+.pride-projects {
+  margin: 0 0 1rem;
+  font-size: var(--text-sm);
+  line-height: 1.6;
+  color: var(--muted);
+}
+
 .level-funding {
   margin: 0 0 0.75rem;
   padding: 0.65rem 0.85rem;

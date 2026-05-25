@@ -207,9 +207,9 @@
       </div>
 
       <div class="level-block">
-        <h3><span class="level-num">3</span> Тканевые белки PRIDE и машинное обучение</h3>
+        <h3><span class="level-num">3</span> Протеомные данные PRIDE и машинное обучение</h3>
         <p class="level-funding">Интеграция мультиомиксных данных и ML — в рамках проекта РНФ №&nbsp;24-74-10098 (Ильгисонис&nbsp;Е.В., Ключникова&nbsp;А.А.).</p>
-        <p>Четыре независимых набора из репозитория <strong>PRIDE</strong>, всего <strong>180</strong> образцов (130 ткань + 50 микровезикул). Матрица <strong>9 610 × 180</strong> белков, z-score внутри проекта, <strong>без импутации</strong>. Отобрано <strong>2 701</strong> «коровых» белков (coverage 100% во всех образцах).</p>
+        <p>По критериям поиска в репозитории <strong>PRIDE</strong> отобраны <strong>четыре независимых проекта</strong> с протеомными профилями, связанными с раком яичников. В интегрированном анализе — <strong>180</strong> образцов. Матрица <strong>9 610 × 180</strong> белков, z-score внутри проекта, <strong>без импутации</strong>. Отобрано <strong>2 701</strong> «коровых» белков (coverage 100% во всех образцах).</p>
         <p>Валидация <strong>LOPO</strong> (Leave-One-Project-Out): обучение на части проектов, тест на независимом. Сравнено <strong>4 стратегии × 6 алгоритмов = 24 модели</strong> — подробности и скрипты: <a href="https://github.com/aziz122596/project_ovarian_cancer" target="_blank" rel="noopener">репозиторий анализа PRIDE</a>.</p>
 
         <table>
@@ -218,8 +218,8 @@
           </thead>
           <tbody>
             <tr><td>Логистическая регрессия L2 (LOPO)</td><td>0,984 ± 0,023</td><td>86%</td><td>100%</td></tr>
-            <tr><td>Случайный лес, tissue-only LOPO</td><td>0,957 [0,92–0,98]</td><td>84%</td><td>97%</td></tr>
-            <tr><td>SVM RBF, tissue-only LOPO</td><td>0,942</td><td>—</td><td>—</td></tr>
+            <tr><td>Случайный лес (LOPO)</td><td>0,957 [0,92–0,98]</td><td>84%</td><td>97%</td></tr>
+            <tr><td>SVM RBF (LOPO)</td><td>0,942</td><td>—</td><td>—</td></tr>
             <tr><td>Universal markers (194 белка)</td><td>0,916</td><td>—</td><td>—</td></tr>
           </tbody>
         </table>
@@ -233,16 +233,11 @@
           <span>IL4I1</span><span>OCIAD2</span><span>DTX3L</span><span>THEM6</span>
         </div>
 
-        <div class="scheme-strip">
-          <div class="scheme-step"><strong>PXD033741</strong>110 · ткань</div>
-          <div class="scheme-step"><strong>PXD012998</strong>14 · ткань</div>
-          <div class="scheme-step"><strong>PXD025864</strong>6 · ткань</div>
-          <div class="scheme-step"><strong>PXD009655</strong>50 · микровезикулы</div>
-        </div>
+        <p class="pride-projects">Проекты PRIDE: <a href="https://www.ebi.ac.uk/pride/archive/projects/PXD033741" target="_blank" rel="noopener">PXD033741</a> · <a href="https://www.ebi.ac.uk/pride/archive/projects/PXD009655" target="_blank" rel="noopener">PXD009655</a> · <a href="https://www.ebi.ac.uk/pride/archive/projects/PXD012998" target="_blank" rel="noopener">PXD012998</a> · <a href="https://www.ebi.ac.uk/pride/archive/projects/PXD025864" target="_blank" rel="noopener">PXD025864</a></p>
 
         <figure class="figure">
           <img src="images/ml_tissue_svm_rbf_roc.png" alt="ROC-кривые SVM RBF: 5-fold CV на тканевых образцах PRIDE" loading="lazy" width="720" />
-          <figcaption><strong>Рис. 6.</strong> Машинное обучение (SVM RBF): 5-fold cross-validation на тканевых образцах трёх проектов PRIDE (n=130). Межпроектная проверка — схема LOPO по четырём наборам PRIDE (см. таблицу).</figcaption>
+          <figcaption><strong>Рис. 6.</strong> Машинное обучение (SVM RBF): 5-fold cross-validation на объединённой когорте PRIDE. Межпроектная проверка — LOPO по четырём проектам (см. таблицу метрик).</figcaption>
         </figure>
       </div>
     </section>
@@ -255,8 +250,8 @@
         <li>Инструмент <strong>PMconv</strong> для связи метаболома и протеома</li>
         <li>Метод концентрации и МС-детекции плазмы на чипах, диапазон до <strong>10⁻¹² моль/л</strong></li>
         <li>Новые плазменные маркёры и панель с высокой разделяющей способностью (ROC до <strong>0,979</strong>)</li>
-        <li>Межлабораторный классификатор тканевых сигнатур (LOPO AUROC <strong>0,984</strong>)</li>
-        <li><strong>194</strong> согласованных белка ткань + жидкость; <strong>9</strong> приоритетных для дальнейшей валидации</li>
+        <li>Межлабораторный протеомный классификатор (LOPO AUROC <strong>0,984</strong>)</li>
+        <li><strong>194</strong> согласованных белка в объединённых протеомных данных; <strong>9</strong> приоритетных для дальнейшей валидации</li>
       </ul>
       <div class="callout">
         Итог подтверждает гипотезу: при гетерогенных опухолях диагностика строится на <strong>многоуровневых воспроизводимых сигнатурах</strong> (литература → плазма → ткань → ML), а не на одном белке.
@@ -286,52 +281,17 @@
       <p><strong><a href="https://github.com/aziz122596/project_ovarian_cancer" target="_blank" rel="noopener">github.com/aziz122596/project_ovarian_cancer</a></strong></p>
       <p>В репозитории: скрипты анализа (<code>scripts/01–07</code>), методология, таблицы метрик, списки белков, описание входной матрицы (9610×180, z-score без импутации, 2701 «коровых» белков).</p>
 
-      <h3>Данные PRIDE</h3>
-      <table>
-        <thead>
-          <tr><th>ID</th><th>Материал</th><th>n</th><th>Назначение</th></tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><a href="https://www.ebi.ac.uk/pride/archive/projects/PXD068982" target="_blank" rel="noopener">PXD068982</a></td>
-            <td>Плазма крови</td>
-            <td>когорта HGSC I–III + контроль</td>
-            <td>Уровень 2: DDA, MRM, АСМ/МС (<em>J. Proteome Res.</em> 2025)</td>
-          </tr>
-          <tr>
-            <td><a href="https://www.ebi.ac.uk/pride/archive/projects/PXD033741" target="_blank" rel="noopener">PXD033741</a></td>
-            <td>Ткань</td>
-            <td>110</td>
-            <td>ML, LOPO</td>
-          </tr>
-          <tr>
-            <td><a href="https://www.ebi.ac.uk/pride/archive/projects/PXD009655" target="_blank" rel="noopener">PXD009655</a></td>
-            <td>Микровезикулы</td>
-            <td>50</td>
-            <td>ML, universal markers</td>
-          </tr>
-          <tr>
-            <td><a href="https://www.ebi.ac.uk/pride/archive/projects/PXD012998" target="_blank" rel="noopener">PXD012998</a></td>
-            <td>Ткань</td>
-            <td>14</td>
-            <td>ML, LOPO</td>
-          </tr>
-          <tr>
-            <td><a href="https://www.ebi.ac.uk/pride/archive/projects/PXD025864" target="_blank" rel="noopener">PXD025864</a></td>
-            <td>Ткань</td>
-            <td>6</td>
-            <td>ML, LOPO</td>
-          </tr>
-        </tbody>
-      </table>
+      <h3>Проекты PRIDE (уровень 3)</h3>
+      <p>Четыре набора, отобранные поиском в PRIDE: <a href="https://www.ebi.ac.uk/pride/archive/projects/PXD033741" target="_blank" rel="noopener">PXD033741</a>, <a href="https://www.ebi.ac.uk/pride/archive/projects/PXD009655" target="_blank" rel="noopener">PXD009655</a>, <a href="https://www.ebi.ac.uk/pride/archive/projects/PXD012998" target="_blank" rel="noopener">PXD012998</a>, <a href="https://www.ebi.ac.uk/pride/archive/projects/PXD025864" target="_blank" rel="noopener">PXD025864</a>. Плазменная когорта уровня 2 — отдельный проект <a href="https://www.ebi.ac.uk/pride/archive/projects/PXD068982" target="_blank" rel="noopener">PXD068982</a> (<em>J. Proteome Res.</em> 2025).</p>
       <p>Обзор мультиомики: PROSPERO <a href="https://www.crd.york.ac.uk/prospero/display_record.php?ID=CRD420250614341" target="_blank" rel="noopener">CRD420250614341</a></p>
 
-      <h3>Ключевая статистика (ткань + ML, репозиторий кода)</h3>
+      <h3>Ключевая статистика (ML, репозиторий кода)</h3>
       <div class="stats-grid">
-        <div class="stat-card"><span class="num">180</span><span class="lbl">образцов, 4 проекта PRIDE</span></div>
+        <div class="stat-card"><span class="num">4</span><span class="lbl">проекта PRIDE</span></div>
+        <div class="stat-card"><span class="num">180</span><span class="lbl">образцов в интеграции</span></div>
         <div class="stat-card"><span class="num">2701</span><span class="lbl">коровых белков (coverage 100%)</span></div>
         <div class="stat-card"><span class="num">0,957</span><span class="lbl">AUROC Random Forest, LOPO</span></div>
-        <div class="stat-card"><span class="num">194</span><span class="lbl">universal markers (ткань + EVs)</span></div>
+        <div class="stat-card"><span class="num">194</span><span class="lbl">универсальных маркёров</span></div>
       </div>
       <p>Логистическая регрессия L2 (LOPO): AUROC <strong>0,984 ± 0,023</strong> (чувствительность 86%, специфичность 100%) — по итогам интеграции проекта. Сравнение 4 стратегий × 6 алгоритмов ML — в <a href="https://github.com/aziz122596/project_ovarian_cancer/blob/main/repo/docs/RESULTS.md" target="_blank" rel="noopener">RESULTS.md</a>.</p>
       <p><strong>9 приоритетных кандидатов</strong> (пересечение топ-100 RF и universal): SEC11A, TMCO1, SHMT2, ACAA1, MTA2, IL4I1, OCIAD2, DTX3L, THEM6.</p>

@@ -125,6 +125,34 @@ footer .inner {
   color: var(--muted);
 }
 
+.author-lead {
+  color: var(--accent);
+}
+
+.funding {
+  margin: 0.75rem 0 0;
+  max-width: 42rem;
+  font-size: var(--text-sm);
+  font-weight: 400;
+  line-height: 1.5;
+  color: var(--muted);
+}
+
+.funding a {
+  font-weight: 600;
+}
+
+.level-funding {
+  margin: 0 0 0.75rem;
+  padding: 0.65rem 0.85rem;
+  font-size: var(--text-sm);
+  line-height: 1.5;
+  color: var(--accent);
+  background: var(--accent-soft);
+  border-left: 3px solid var(--accent);
+  border-radius: 0 var(--radius) var(--radius) 0;
+}
+
 /* Навигация */
 .site-nav {
   position: sticky;

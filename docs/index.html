@@ -16,8 +16,9 @@
       <p class="badge">Премия «ВЫЗОВ» · номинация «Перспектива»</p>
       <h1>Воспроизводимая методология поиска молекулярных сигнатур гетерогенных опухолей на модели рака яичников</h1>
       <p class="lead">От систематического анализа мировых данных — к сверхчувствительной жидкой биопсии и межлабораторно воспроизводимым белковым сигнатурам высокозлокачественного серозного рака яичников (HGSC).</p>
-      <p class="authors">Ильгисонис Екатерина Викторовна · Ключникова Анна Алексеевна · Гордеева Арина Игоревна</p>
+      <p class="authors"><span class="author-lead">Ильгисонис Екатерина Викторовна</span> · Ключникова Анна Алексеевна · Гордеева Арина Игоревна</p>
       <p class="org">ФГБНУ ИБМХ им. В.Н. Ореховича · УНУ «Авогадро» · Москва</p>
+      <p class="funding">При поддержке <a href="https://rscf.ru/project/24-74-10098/" target="_blank" rel="noopener">РНФ</a>, проект №&nbsp;24-74-10098: «Подходы глубокого машинного обучения для интеграции мультиомиксных данных»</p>
     </div>
   </header>
 
@@ -27,7 +28,7 @@
         <div class="figure__scroll">
           <img src="images/scheme-3levels.svg" alt="Схема трёх уровней проекта" />
         </div>
-        <figcaption><strong>Рис. 1.</strong> Трёхуровневая методология: систематический обзор → плазменная протеомика → PRIDE и машинное обучение.</figcaption>
+        <figcaption><strong>Рис. 1.</strong> Трёхуровневая методология: систематический обзор → плазменная протеомика → PRIDE и машинное обучение. Уровни&nbsp;1 и&nbsp;3 выполнены в рамках проекта РНФ&nbsp;24-74-10098 (руководитель направления — Ильгисонис&nbsp;Е.В.).</figcaption>
       </figure>
     </div>
   </div>
@@ -140,6 +141,7 @@
 
       <div class="level-block">
         <h3><span class="level-num">1</span> Систематизация данных и PMconv</h3>
+        <p class="level-funding">Проект РНФ №&nbsp;24-74-10098 — «Подходы глубокого машинного обучения для интеграции мультиомиксных данных» (Ильгисонис&nbsp;Е.В., Ключникова&nbsp;А.А.).</p>
         <p>Систематический обзор по <strong>PRISMA</strong> (PROSPERO <a href="https://www.crd.york.ac.uk/prospero/display_record.php?ID=CRD420250614341" target="_blank" rel="noopener">CRD420250614341</a>). База <strong>1649</strong> кандидатов с аннотацией по подтипу, стадии, направлению изменения, методу и числу образцов.</p>
         <p>Инструмент <strong>PMconv</strong> сопоставляет метаболиты и белки через метаболические пути. Для HGSC: <strong>12</strong> метаболитов → <strong>98</strong> белков путей (таурин, жирные кислоты, полиамины, аминокислоты). Многие из них труднодоступны для прямого МС в плазме.</p>
         <p>Ключевые публикации: <em>Int. J. Mol. Sci.</em> 2025, 26(13), 5961 — <a href="https://doi.org/10.3390/ijms26135961" target="_blank" rel="noopener">DOI 10.3390/ijms26135961</a></p>
@@ -200,6 +202,7 @@
 
       <div class="level-block">
         <h3><span class="level-num">3</span> Тканевые белки PRIDE и машинное обучение</h3>
+        <p class="level-funding">Интеграция мультиомиксных данных и ML — в рамках проекта РНФ №&nbsp;24-74-10098 (Ильгисонис&nbsp;Е.В., Ключникова&nbsp;А.А.).</p>
         <p>Четыре независимых набора из репозитория <strong>PRIDE</strong>, всего <strong>180</strong> образцов (130 ткань + 50 микровезикул). Матрица <strong>9 610 × 180</strong> белков, z-score внутри проекта, <strong>без импутации</strong>. Отобрано <strong>2 701</strong> «коровых» белков (coverage 100% во всех образцах).</p>
         <p>Валидация <strong>LOPO</strong> (Leave-One-Project-Out): обучение на части проектов, тест на независимом. Сравнено <strong>4 стратегии × 6 алгоритмов = 24 модели</strong> — подробности и скрипты: <a href="https://github.com/aziz122596/project_ovarian_cancer" target="_blank" rel="noopener">репозиторий анализа PRIDE</a>.</p>
 
@@ -334,7 +337,8 @@
     <div class="inner">
       <p><strong>Воспроизводимая методология молекулярных сигнатур рака яичников</strong></p>
       <p>Ильгисонис Е.В. · Ключникова А.А. · Гордеева А.И.</p>
-      <p>ИБМХ им. В.Н. Ореховича · Москва · <a href="https://ibmc.msk.ru" target="_blank" rel="noopener">ibmc.msk.ru</a></p>
+      <p>ИБМХ им. В. Н. Ореховича · Москва · <a href="https://ibmc.msk.ru" target="_blank" rel="noopener">ibmc.msk.ru</a></p>
+      <p>Поддержка: <a href="https://rscf.ru/project/24-74-10098/" target="_blank" rel="noopener">РНФ, проект 24-74-10098</a> — подходы глубокого машинного обучения для интеграции мультиомиксных данных.</p>
       <p>Код анализа PRIDE/ML: <a href="https://github.com/aziz122596/project_ovarian_cancer" target="_blank" rel="noopener">project_ovarian_cancer</a></p>
     </div>
   </footer>
